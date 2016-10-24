@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="post">
+
+
+    <p class="index-title">
+      <%= @post.title.titleize %>
+    </p>
+
+    <p class="index-body">
+      <%= @post.body.gsub(/\n/, '<br />').html_safe %>
+    </p>
+    <%= button_to 'Back', posts_path, :class => "read-more-button float-l", method: :get %>
+    <%= button_to 'Delete', @post, :class => "read-more-button float-l", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= button_to 'Edit', edit_post_path(@post), :class => "read-more-button float-l", method: :get %>
+  </div>
+</div>
+
+<!-- green : rgb(100, 210, 100)
+deep orange rgb(224, 100, 100)
+blue #2196f3 -->

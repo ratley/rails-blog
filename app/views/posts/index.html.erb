@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="posts">
+    <!-- <h2>bradley inniss</h2> -->
+    <ul>
+      <% @posts.each do |post| %>
+      <div class="">
+        <li class="index-title">
+          <%= link_to post.title.titleize, post %>
+          <br>
+          <span class="date"><%= post.created_at.strftime('%A, %b %C') %></span>
+        <li>
+        <li class="index-body">
+          <%= truncate(post.body, length: 200, separator: ' ').gsub(/\n/, '<br />').html_safe %>
+          <% if post.body.length > 200 %>
+          <%= button_to "Read more", post, :class => "read-more-button", :method => :get %>
+          <% end %>
+        <li>
+
+          <!-- <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>  -->
+      </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
